@@ -110,17 +110,17 @@ func (a *AuthClient) getAndParseToken(path string, accountType string, params ma
 		return nil, err
 	}
 
-	var token *authgateway.Token
+	var token authgateway.Token
 
 	data, err := ioutil.ReadAll(res.Body)
 	if err != nil {
 		return nil, err
 	}
 
-	err = json.Unmarshal(data, token)
+	err = json.Unmarshal(data, &token)
 	if err != nil {
 		return nil, errors.Wrap(err, "could not unmarshal token")
 	}
 
-	return token, err
+	return &token, err
 }
