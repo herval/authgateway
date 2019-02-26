@@ -1,6 +1,7 @@
 package authgateway
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/oauth2"
 	"strings"
@@ -24,7 +25,8 @@ func (a *Api) StartServer(port string, env Config) error {
 	s.GET(AuthorizePath(""), oauthAuthUrl(env))
 	s.GET(TokenPath(""), oauthTokenExchange(env))
 	s.GET(RefreshTokenPath(""), oauthRefreshToken(env))
-	// TODO refresh token
+
+	fmt.Println("Starting server on port " + port)
 	return s.Run(port)
 }
 

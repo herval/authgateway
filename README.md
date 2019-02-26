@@ -25,6 +25,8 @@ so one can simply edit a yml file, deploy it anywhere, and focus on building the
 3. Obtain a ClientId/ClientSecret pair
 4. Configure `<your server>/oauth2/callback/:serviceName` as the callback url on OAuth service (replacing `:serviceName` with the identifier you used on the yaml config - eg `google` or `dropbox`) 
 
+This project includes a Dockerfile, so all you need to do to have it running locally is make a `services.yaml` file based on the `services.yaml.example` file, then run `./build.sh` and `./run.sh`.
+
 ## Usage
 
 There's a couple endpoints your app will call directly:
